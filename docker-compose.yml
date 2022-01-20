@@ -1,0 +1,46 @@
+version: '3.7'
+services:
+  # Databases
+  ml_mongo:
+    image: mongo:latest
+    container_name: ml_mongo
+    restart: always
+    networks:
+      - ml
+    volumes:
+      - ml_mongo:/data/db
+  # ml_neo4j:
+  #   container_name: ml_neo4j
+  #   image: neo4j:3.5
+  #   restart: unless-stopped
+  #   ports:
+  #     - 7474:7474
+  #     - 7687:7687
+  #   networks:
+  #     - ml
+  #   volumes:
+  #     - ml_neo4j:/data
+  #   environment: 
+  #     # Raise memory limits
+  #     - NEO4J_dbms_memory_pagecache_size=1G
+  #     - NEO4J_dbms.memory.heap.initial_size=1G
+  #     - NEO4J_dbms_memory_heap_max__size=1G
+
+  ml_jupyter:
+    container_name: ml_jupyter
+    build:
+       context: .
+       dockerfile: ./ml_jupyter/Dockerfile
+    volumes:
+      - ./ml_jupyter/:/notebook/
+      - ./drivers/:/drivers/
+    ports:
+      - 8888:8888
+    networks:
+      - ml
+
+volumes:
+  # ml_neo4j:
+  ml_mongo:
+networks:
+  ml:
