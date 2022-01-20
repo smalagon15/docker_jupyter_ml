@@ -3,4 +3,4 @@ data/
 *.dat
 ml_jupyter/.Trash*
 docker-compose.override.yml
-*__pycache__/
+*__pycache__
