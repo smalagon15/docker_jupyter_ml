@@ -1,6 +1,6 @@
 from .node_interface import NodeInterface
-from Neo4jDriver.settings import *
-from Neo4jDriver.db_thread import DBThread
+from data_drivers.neo4j_driver.settings import *
+from data_drivers.neo4j_driver.db_thread import DBThread
 from geopy.distance import geodesic
 from datetime import datetime
 

@@ -1,1 +1,1 @@
-from Neo4jDriver.nodes.node_interface import REGISTRY
+from data_drivers.neo4j_driver.nodes.node_interface import REGISTRY

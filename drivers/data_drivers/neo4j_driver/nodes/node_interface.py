@@ -31,7 +31,7 @@ def node_registry():
         if isfile(f) and not f.endswith("__init__.py") and not f.endswith("node_interface.py"):
             file_names[basename(f)[:-3]] = f
     for name in file_names:    
-            importlib.import_module("Neo4jDriver.nodes."+name)
+            importlib.import_module("data_drivers.neo4j_driver.nodes."+name)
 
     return NodeInterface.REGISTRY
 
