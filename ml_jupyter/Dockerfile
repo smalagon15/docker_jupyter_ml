@@ -8,13 +8,12 @@ RUN mkdir /notebook
 RUN mkdir /drivers
 
 # Copy in the project and drivers
-COPY ./pytorch_geometric/ /notebook/
+COPY ./ml_jupyter/ /notebook/
 COPY ./drivers/ /drivers/
 
 # Install dependencies and set up environmental install for drivers
 RUN pip install -e /drivers
 RUN pip install -r /notebook/requirements.txt
-RUN conda install pyg -c pyg -c conda-forge
 
 # Add Tini. Tini operates as a process subreaper for jupyter. This prevents kernel crashes.
 ENV TINI_VERSION v0.6.0
