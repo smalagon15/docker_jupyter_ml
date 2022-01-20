@@ -19,7 +19,7 @@ class MongoDriver:
     # These two methods insert and retrive dataframs from the Data DB
     def insert_data(self, collection, data_frame):
         df = data_frame.to_dict(orient="records")
-        self.insert_collection(DATA, collection, df, "date")
+        self.insert_collection(DATA, collection, df, "subject_id")
     def get_data_frame(self, collection):
         data =self.get_collection(DATA, collection)
         mongo_df = pd.DataFrame.from_records(data)
