@@ -34,8 +34,8 @@ class MongoDriver:
         return data
 
     def get_collections(self):
-        model_collections = self.client[MODEL].collection_names()
-        data_collections = self.client[DATA].collection_names()
+        model_collections = self.client[MODEL].list_collection_names()
+        data_collections = self.client[DATA].list_collection_names()
         return {'model_collections':model_collections, 'data_collections':data_collections}
 
 
